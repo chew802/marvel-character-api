@@ -1,5 +1,6 @@
 const nodeExternals = require('webpack-node-externals');
 const NodemonPlugin = require('nodemon-webpack-plugin'); 
+const Dotenv = require('dotenv-webpack');
 const path = require('path');
 const {
   NODE_ENV = 'production',
@@ -31,6 +32,7 @@ module.exports = {
   plugins: [
     new NodemonPlugin({
       watch: path.resolve('./dist')
-    })
+    }),
+    new Dotenv()
   ]
 }

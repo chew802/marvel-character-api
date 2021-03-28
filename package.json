@@ -22,8 +22,10 @@
   "homepage": "https://github.com/chew802/marvel-character-api#readme",
   "devDependencies": {
     "@types/jest": "^26.0.22",
+    "@types/md5": "^2.3.0",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
+    "dotenv-webpack": "^7.0.2",
     "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-standard": "^16.0.2",
@@ -44,6 +46,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "md5": "^2.3.0"
   }
 }
