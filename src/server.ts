@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { getCharacters, getCharacterById } from './modules/characters/characters';
+import { getCharacters, getCharacterById } from './modules/character/character';
 
 const app = express();
 const { PORT = 8080 } = process.env;
