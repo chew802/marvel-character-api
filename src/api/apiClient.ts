@@ -30,15 +30,18 @@ export default () => {
   marvelApi.interceptors.request.use(requestHandler, errorHandler);
 
   return {
-    getCharacters: (limit = 1, offset = 0, orderBy = 'name'): Promise<AxiosResponse<CharacterData>> => marvelApi.get('/v1/public/characters', { params: { limit, offset, orderBy } })
+    getCharacters: (limit = 1, offset = 0, orderBy = 'name'): Promise<AxiosResponse<ApiResponse>> => marvelApi.get('/v1/public/characters', { params: { limit, offset, orderBy } }),
+    getCharacterById: (characterId): Promise<AxiosResponse<ApiResponse>> => marvelApi.get(`/v1/public/characters/${characterId}`)
   }
 }
 
-type CharacterData = {
+type ApiResponse = {
   data: {
-    total: number,
+    total: number
     results: {
-      id
-    }[]
+      id: number
+      name: string
+      description: string
+    }
   }
 }

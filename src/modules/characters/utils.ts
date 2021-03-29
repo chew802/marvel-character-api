@@ -1,5 +1,6 @@
 import axios from 'axios';
-import apiClient from './apiClient';
+import apiClient from '../../api/apiClient';
+import { Character } from './type';
 
 export const getAllCharacterIds = async (): Promise<number[]> => {
   const api = apiClient();
@@ -17,7 +18,7 @@ export const getAllCharacterIds = async (): Promise<number[]> => {
       getCharacterRequests.push(api.getCharacters(pageSize, offset));
     }
   
-    //combine result after all requests back
+    //combine result after all requests returned
     return await axios.all(getCharacterRequests).then(axios.spread((...responses) => {
       return responses.reduce((concatedCharacters, getCharacterResponse) => {
         const ids = (getCharacterResponse?.data?.data?.results?.map(character => character.id));
@@ -25,4 +26,16 @@ export const getAllCharacterIds = async (): Promise<number[]> => {
       }, [])
     }));
   });
+}
+
+export const getCharacter = async (characterId):Promise<Character> => {
+  const api = apiClient();
+  return await api.getCharacterById(characterId).then(response => {
+    const character = response?.data?.data?.results?.[0];
+    return {
+      id: character?.id,
+      name: character?.name,
+      description: character?.description
+    }    
+  })
 }

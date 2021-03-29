@@ -1,7 +1,5 @@
 import express, { Request, Response } from "express";
-import { getCharacters } from './characters';
-
-import md5 from 'md5';
+import { getCharacters, getCharacterById } from './modules/characters/characters';
 
 const app = express();
 const { PORT = 8080 } = process.env;
@@ -12,7 +10,9 @@ app.get("/", (req: Request, res: Response) => {
   });
 });
 
-app.get("/characters", getCharacters)
+app.get("/characters", getCharacters);
+
+app.get("/characters/:characterId", getCharacterById);
 
 app.listen(PORT, () => {
   console.log("server started at http://localhost:" + PORT);
