@@ -24,7 +24,7 @@ export const getCharacterById = async (req, res) => {
     return res.send(Cache.get(cacheKey) as Character);
   }
   const character = await getCharacter(characterId);
-  if (!character?.id) {
+  if (!character) {
     return res.status(404).send("Character not found");
   }
   Cache.set(cacheKey, character);
