@@ -1,38 +1,48 @@
 # marvel-character-api
 
-## Install
+## Installation and commands
+### Install
 
     git clone git@github.com:chew802/marvel-character-api.git
     cd marvel-character-api
     npm install
 
-## Configure app
+### Configure app
 Go to https://developer.marvel.com/account# and register a new account if you dont have, after register should see a pair of private and public keys. 
 Create a new file name with `.env`, then insert below lines and replace xxxx withe api keys you get from https://developer.marvel.com/account#
 
     MARVEL_API_PUBLIC_KEY=xxxx
     MARVEL_API_PRIVATE_KEY=xxxx
 
-## Running the project
+### Running the project
 
     npm run start
 	
-## Testing the project
+### Testing the project
 
     npm run test
 	
-## Prettier and lint the project
+### Prettier and lint the project
 
     npm run format #prettier
 	npm run lint
 
-## Simple build for production
+### Simple build for production
 
     npm run build
 
-## Swagger Doc of the project
+### Swagger Doc of the project
 
     http://localhost:8080/api-docs/
+
+## Further improvement
+
+    Add integration test to perform end to end test
+    Add logger to log error and audit trail properly
+    Add OPENApi to typescript type converter, then integrate to api request and response
+    Add authentication for security purpose
+    Enable configurable environment values
+    Cache enhancement as below
 
 ## Cache
 #### Cache-tools
