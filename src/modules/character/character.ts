@@ -11,19 +11,22 @@ export const getCharacters = async (req, res) => {
   }
   const characterIds: CharacterIds = await getAllCharacterIds();
   Cache.set(CACHE_KEY, characterIds)
-  res.send(characterIds);
+  return res.send(characterIds);
 }
 
 export const getCharacterById = async (req, res) => {
   const { characterId } = req.params;
-  const cacheKey = `${CACHE_KEY_PREFIX}${characterId}`;
-  if(!characterId) {
-    throw new Error('Please provide character id');
+  if(isNaN(characterId) || !characterId) {
+    return res.status(400).send('Invalid character id')
   }
+  const cacheKey = `${CACHE_KEY_PREFIX}${characterId}`;
   if(Cache.has(cacheKey)) {
     return res.send(Cache.get(cacheKey) as Character);
   }
   const character = await getCharacter(characterId);
+  if(!character?.id) {
+    return res.status(404).send('Character not found');
+  }
   Cache.set(cacheKey, character);
-  res.send(character);
+  return res.send(character);
 }

@@ -65,4 +65,29 @@ describe('getCharacterbyId', () => {
     expect(getCharacter).toBeCalledWith(1234567);
   })
 
+  it('should return 400 when character id is invalid', async () => {
+    const mockResponseSend = jest.fn();
+    const mockResponseStatus = jest.fn(() => ({
+      send: mockResponseSend
+    }));
+
+    await getCharacterById({params: {characterId: '123abc'}}, {status: mockResponseStatus});
+    expect(mockResponseStatus).toBeCalledWith(400);
+    expect(mockResponseSend).toBeCalledWith('Invalid character id');
+  })
+
+  it('should call api to get character ids when cache doesn\'t exist', async () => {
+    const mockResponseSend = jest.fn();
+    const mockResponseStatus = jest.fn(() => ({
+      send: mockResponseSend
+    }));
+
+    Cache.has = jest.fn().mockImplementationOnce(() => false);
+    getCharacterMock.mockImplementationOnce(async () => {return await {}});
+    await getCharacterById({params: {characterId: 1234567}}, {status: mockResponseStatus});
+    expect(getCharacter).toBeCalledWith(1234567);
+    expect(mockResponseStatus).toBeCalledWith(404);
+    expect(mockResponseSend).toBeCalledWith('Character not found');
+  })
+
 })

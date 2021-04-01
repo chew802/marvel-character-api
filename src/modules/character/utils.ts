@@ -28,7 +28,7 @@ export const getAllCharacterIds = async (): Promise<number[]> => {
   });
 }
 
-export const getCharacter = async (characterId):Promise<Character> => {
+export const getCharacter = async (characterId):Promise<Character | {}> => {
   const api = apiClient();
   return await api.getCharacterById(characterId).then(response => {
     const character = response?.data?.data?.results?.[0];
