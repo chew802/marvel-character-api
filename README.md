@@ -31,15 +31,19 @@ Create a new file name with `.env`, then insert below lines and replace xxxx wit
     npm run build
 
 ## Cache
-####Cache-tools
+#### Cache-tools
 Used `node-cache` for MVP product development, which is fast by using in-memory caching. 
 To be scale, it should migrate to more flexible tools, e.g. build a cache server with `redis` with a trade off of adding time communicate with the cache server to allow data cached once and sharable to all api servers. 
 Also can consider cache on network layer, e.g. cdn or api gateway. 
 
-####Cache-strategy
+#### Cache-strategy
 Currently is cached on the api controller level, which is faster for these simple get api. 
 While different api might sharing the same request to marvel api, should cache the api response so it sharable & reusable when user calls different api. 
 
-####Marvel adding new character
+#### Marvel adding new character
 For all character ids, can setup a schedule job to check if the cached heroes count align with the latest count. 
 For Character information, can set a TTL based on the frequency of character information change to maximize the cache's value. 
+
+#### current vs scaled diagram
+![alt text](https://github.com/chew802/marvel-character-api/blob/master/README/current.jpg?raw=true)
+![alt text](https://github.com/chew802/marvel-character-api/blob/master/README/scaled.jpg?raw=true)
