@@ -96,9 +96,7 @@ describe("getCharacterbyId", () => {
     }));
 
     Cache.has = jest.fn().mockImplementationOnce(() => false);
-    getCharacterMock.mockImplementationOnce(async () => {
-      return await {};
-    });
+    getCharacterMock.mockImplementationOnce(async () => null);
     await getCharacterById(
       { params: { characterId: 1234567 } },
       { status: mockResponseStatus }
