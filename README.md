@@ -30,6 +30,10 @@ Create a new file name with `.env`, then insert below lines and replace xxxx wit
 
     npm run build
 
+## Swagger Doc of the project
+
+    http://localhost:8080/api-docs/
+
 ## Cache
 #### Cache-tools
 Used `node-cache` for MVP product development, which is fast by using in-memory caching. 

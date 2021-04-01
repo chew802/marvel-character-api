@@ -8,12 +8,6 @@
     },
     "version": "1.0.0"
   },
-  "servers": [
-    {
-      "url": "https://virtserver.swaggerhub.com/chewzhenyong/marvel-character-api/1.0.0",
-      "description": "SwaggerHub API Auto Mocking"
-    }
-  ],
   "tags": [
     {
       "name": "characters",
@@ -29,46 +23,6 @@
         "summary": "get all characters",
         "description": "Get all character ids without parameter",
         "operationId": "getCharacters",
-        "parameters": [
-          {
-            "name": "searchString",
-            "in": "query",
-            "description": "pass an optional search string for looking up inventory",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "skip",
-            "in": "query",
-            "description": "number of records to skip for pagination",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "minimum": 0,
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "maximum number of records to return",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "maximum": 50,
-              "minimum": 0,
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "character ids returned",
