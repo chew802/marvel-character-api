@@ -1,7 +1,7 @@
-export type CharacterIds = number[]
+export type CharacterIds = number[];
 
 export type Character = {
-  id: number
-  name: string
-  description: string
-}
+  id: number;
+  name: string;
+  description: string;
+};
