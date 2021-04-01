@@ -37,6 +37,7 @@ Create a new file name with `.env`, then insert below lines and replace xxxx wit
 
 ## Further improvement
 
+    Add more unit tests on the code
     Add integration test to perform end to end test
     Add logger to log error and audit trail properly
     Add OPENApi to typescript type converter, then integrate to api request and response
