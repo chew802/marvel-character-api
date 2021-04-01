@@ -45,5 +45,5 @@ For all character ids, can setup a schedule job to check if the cached heroes co
 For Character information, can set a TTL based on the frequency of character information change to maximize the cache's value. 
 
 #### current vs scaled diagram
-![alt text](https://github.com/chew802/marvel-character-api/blob/master/README/current.jpg?raw=true)
-![alt text](https://github.com/chew802/marvel-character-api/blob/master/README/scaled.jpg?raw=true)
+![alt text](https://github.com/chew802/marvel-character-api/blob/main/README/current.jpg?raw=true)
+![alt text](https://github.com/chew802/marvel-character-api/blob/main/README/scaled.jpg?raw=true)
